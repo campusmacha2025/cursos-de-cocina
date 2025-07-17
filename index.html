@@ -1,1 +1,22 @@
-<!-- CONTENIDO DEL INDEX.HTML PROVISTO POR CHARLY -->
+<!DOCTYPE html>
+<html lang="es" x-data="appData()" :class="lang">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Macha</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3" defer></script>
+  <link href="css/tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold" x-text="t('heroTitle')"></h1>
+    <p class="text-lg mt-2" x-text="t('heroDesc')"></p>
+  </header>
+
+  <main class="text-center mt-6">
+    <img src="assets/hero.jpg" alt="Hero" class="w-full max-w-4xl mx-auto rounded shadow">
+  </main>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
