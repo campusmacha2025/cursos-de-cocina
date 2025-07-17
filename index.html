@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Macha</title>
+  <link rel="stylesheet" href="css/tailwind.css">
+  <script>
+    function cambiarIdioma(lang) {
+      document.documentElement.lang = lang;
+      if (lang === 'en') {
+        document.getElementById('hero-text').innerText = "Learn to cook like a professional chef";
+        document.getElementById('instructor-title').innerText = "Meet your instructor";
+        document.getElementById('instructor-desc').innerText = "Chef Marco Bellini, born in Florence, is passionate about modern Italian cuisine. With over 12 years of experience in Michelin-starred restaurants, he guides you step by step to learn professional techniques from your own kitchen.";
+        document.getElementById('promo-title').innerText = "🔥 Special Offer: 3 courses for 100€";
+        document.getElementById('promo-text').innerText = "Choose any combination of courses. Perfect for gifting or quick learning.";
+        document.getElementById('cert-title').innerText = "🎓 Digital Certificate";
+        document.getElementById('cert-desc').innerText = "After completing any course, you'll receive an official downloadable PDF certificate signed by Campus Macha.";
+        document.getElementById('muro-title').innerText = "📸 Student Wall";
+        document.getElementById('muro-desc').innerText = "Upload your dish photo and share your achievements with the community.";
+        document.getElementById('review-title').innerText = "⭐ Student Reviews";
+        document.getElementById('review-text').innerText = "\"Amazing course, I learned more than months of YouTube. Thank you Campus Macha!\" – Laura G.";
+        document.getElementById('buy-button-label').innerText = "Buy";
+      } else {
+        location.reload();
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-900">
+  <!-- Selector de idioma -->
+  <div class="text-right px-6 py-2 bg-gray-100 text-sm">
+    <label for="lang-select">🌐 Idioma / Language:</label>
+    <select id="lang-select" onchange="cambiarIdioma(this.value)" class="ml-2 border px-1 py-0.5 rounded">
+      <option value="es" selected>Español</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+
+  <!-- Hero principal -->
+  <header class="text-center py-10 bg-orange-100 shadow">
+    <h1 id="hero-text" class="text-4xl font-bold">Aprende a cocinar como un chef profesional</h1>
+  </header>
+
+  <main class="p-6">
+    <!-- Instructor -->
+    <section id="instructor" class="text-center mb-12">
+      <h2 id="instructor-title" class="text-2xl font-semibold mb-4">Conocé a tu instructor</h2>
+      <img src="assets/chef_instructor.png" alt="Instructor de cocina" class="mx-auto rounded-2xl shadow-md w-60 mb-4" />
+      <p id="instructor-desc" class="max-w-xl mx-auto text-lg text-gray-800">
+        El Chef Marco Bellini, nacido en Florencia, es un apasionado de la cocina italiana moderna. Con más de 12 años de experiencia en restaurantes con estrella Michelin, te guía paso a paso para que aprendas técnicas profesionales desde tu cocina.
+      </p>
+    </section>
+
+    <!-- Promo -->
+    <section id="promo" class="text-center bg-orange-50 p-6 rounded-lg mb-12">
+      <h2 id="promo-title" class="text-xl font-bold mb-2">🔥 Promo Especial: 3 cursos por 100€</h2>
+      <p id="promo-text" class="text-gray-700">Elegí cualquier combinación de cursos. Ideal para regalar o avanzar rápido.</p>
+    </section>
+
+    <!-- Cursos -->
+    <section id="cursos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <p class="text-center col-span-3 text-gray-500">Cargando cursos...</p>
+    </section>
+
+    <!-- Certificado -->
+    <section id="certificado" class="text-center mb-12">
+      <h2 id="cert-title" class="text-2xl font-bold mb-4">🎓 Certificado Digital</h2>
+      <p id="cert-desc" class="text-gray-700 mb-4">Al completar cualquier curso recibirás un certificado oficial descargable en PDF, firmado digitalmente por Campus Macha.</p>
+      <form class="max-w-md mx-auto">
+        <input type="text" placeholder="Tu nombre completo" class="border px-4 py-2 w-full mb-2 rounded" />
+        <button class="bg-orange-500 text-white px-6 py-2 rounded">Descargar Certificado</button>
+      </form>
+    </section>
+
+    <!-- Muro de alumnos -->
+    <section id="muro" class="text-center mb-12">
+      <h2 id="muro-title" class="text-2xl font-bold mb-4">📸 Muro de Alumnos</h2>
+      <p id="muro-desc" class="text-gray-700 mb-4">Subí la foto de tu plato y compartí tus logros con la comunidad.</p>
+      <form class="mb-4 max-w-md mx-auto">
+        <input type="file" class="mb-2 w-full" />
+        <button class="bg-gray-700 text-white px-6 py-2 rounded">Subir Foto</button>
+      </form>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <!-- Aquí se cargarán las fotos de alumnos -->
+      </div>
+    </section>
+
+    <!-- Reseñas -->
+    <section id="reseñas" class="text-center mb-12">
+      <h2 id="review-title" class="text-2xl font-bold mb-4">⭐ Reseñas de Alumnos</h2>
+      <blockquote id="review-text" class="italic max-w-xl mx-auto text-gray-600">"Excelente curso, aprendí más que en meses viendo YouTube. ¡Gracias Campus Macha!" – Laura G.</blockquote>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
