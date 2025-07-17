@@ -1,1 +1,0 @@
-function appData(){ return { lang:'es', t:(k)=>k, cursos:[], cart:[] } }
