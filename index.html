@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" x-data="appData()" :class="lang">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Macha</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3" defer></script>
+  <link href="css/tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+  <header class="bg-white shadow">
+    <div class="text-center py-10">
+      <h1 class="text-4xl font-bold" x-text="t('heroTitle')"></h1>
+      <p class="mt-2 text-lg" x-text="t('heroDesc')"></p>
+      <div class="mt-4 space-x-4">
+        <a href="#cursos" class="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600" x-text="t('btnView')"></a>
+        <a href="#suscripcion" class="border border-orange-500 text-orange-500 px-6 py-3 rounded hover:bg-orange-50" x-text="t('btnSubscribe')"></a>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto px-6">
+      <img src="assets/hero.jpg" alt="Chefs cocinando" class="w-full h-64 object-cover rounded-lg mt-4">
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <section id="cursos">
+      <h2 class="text-3xl font-semibold mb-8" x-text="t('coursesTitle')"></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <template x-for="c in cursos" :key="c.id">
+          <div class="bg-white rounded-lg shadow p-6 flex flex-col">
+            <img :src="c.img" alt="" class="h-40 w-full object-cover rounded mb-4">
+            <h3 class="text-xl font-semibold mb-2" x-text="c.title"></h3>
+            <p class="text-gray-600 flex-grow" x-text="c.desc"></p>
+            <p class="text-sm text-gray-500 mb-2" x-text="c.duration + 'h'"></p>
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-semibold" x-text="'\u20ac' + c.price"></span>
+              <button @click="showIngredients(c)" class="text-sm text-blue-600" x-text="t('btnIngredients')"></button>
+            </div>
+            <button @click="addToCart(c)" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded" x-text="t('btnAddCart')"></button>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <section class="mt-12 text-center">
+      <h2 class="text-3xl font-semibold mb-4" x-text="t('promoTitle')"></h2>
+      <p class="text-xl mb-4" x-text="t('promoDesc')"></p>
+      <button @click="addCombo()" class="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600" x-text="t('btnAddCombo')"></button>
+
+      <!-- Botón PayPal real -->
+      <div class="mt-6">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="guner_charly@hotmail.com">
+          <input type="hidden" name="item_name" value="Promo 3 Cursos - Campus Macha">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="hidden" name="amount" value="100.00">
+          <input type="hidden" name="return" value="https://campusmacha.com/gracias.html">
+          <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="Comprar con PayPal">
+        </form>
+      </div>
+    </section>
+
+    <section class="mt-20 text-center">
+      <h2 class="text-3xl font-semibold mb-6">👨‍🍳 Conocé al instructor</h2>
+      <div class="bg-white shadow-lg rounded-lg p-6 max-w-xl mx-auto">
+        <img src="assets/instructor.jpg" alt="Chef Charly Guner" class="w-40 h-40 object-cover rounded-full mx-auto mb-4">
+        <h3 class="text-xl font-bold">Chef Charly Guner</h3>
+        <p class="text-sm text-gray-600 mb-2">Fundador de Campus Macha</p>
+        <p class="text-base">Argentino de corazón y chef de alma, Charly combina la tradición culinaria latina con una visión moderna y educativa. Con más de 10 años de experiencia en cocinas profesionales, y una pasión por enseñar, fundó Campus Macha para llevar la cocina real y sin filtro a todos los rincones del mundo digital.</p>
+        <p class="text-sm text-gray-600 mt-3">📍 Actualmente radicado en Calpe, España<br>📬 Contacto: campusmacha@gmail.com</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
